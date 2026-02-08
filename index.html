@@ -23,6 +23,10 @@
       position: relative;
     }
 
+    body.celebrating {
+      overflow-y: auto;
+    }
+
     /* Hearts pattern background */
     .bg-pattern {
       position: fixed;
@@ -72,6 +76,22 @@
       width: 80%;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(219, 68, 103, 0.25);
+    }
+
+    /* Our photo */
+    .our-photo-container {
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .our-photo-container img {
+      max-width: 380px;
+      width: 90%;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(219, 68, 103, 0.3);
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      object-fit: cover;
+      aspect-ratio: 3/2;
     }
 
     /* Personalized greeting */
@@ -302,6 +322,9 @@
       .gif-container img {
         max-width: 220px;
       }
+      .our-photo-container img {
+        max-width: 300px;
+      }
       .btn-yes {
         padding: 12px 32px;
         font-size: 1.1rem;
@@ -354,6 +377,10 @@
       <div class="gif-container">
         <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
              alt="Celebratory bear kiss">
+      </div>
+      <div class="our-photo-container">
+        <img src="us.png"
+             alt="Us together">
       </div>
       <p class="celebration-text">
         Yay!! I knew it, Bujji Baby! <br>
@@ -509,6 +536,9 @@
       askingState.classList.add('hidden');
       celebrationState.classList.add('active');
       overlay.classList.add('active');
+
+      // Allow scrolling for celebration content
+      document.body.classList.add('celebrating');
 
       // Trigger celebrations
       launchConfetti();
